@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ParsingResultsModelContainer" CdmEntityContainer="ParsingResultsEntities">
+    <EntitySetMapping Name="TagA">
+      <EntityTypeMapping TypeName="ParsingResultsModel.TagA">
+        <MappingFragment StoreEntitySet="TagA">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UrlId" ColumnName="UrlId" />
+          <ScalarProperty Name="Href" ColumnName="Href" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TagH1">
+      <EntityTypeMapping TypeName="ParsingResultsModel.TagH1">
+        <MappingFragment StoreEntitySet="TagH1">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UrlId" ColumnName="UrlId" />
+          <ScalarProperty Name="H1Text" ColumnName="H1Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TagImg">
+      <EntityTypeMapping TypeName="ParsingResultsModel.TagImg">
+        <MappingFragment StoreEntitySet="TagImg">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UrlId" ColumnName="UrlId" />
+          <ScalarProperty Name="Src" ColumnName="Src" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Urls">
+      <EntityTypeMapping TypeName="ParsingResultsModel.Urls">
+        <MappingFragment StoreEntitySet="Urls">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="MetaContent" ColumnName="MetaContent" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="StatusDescription" ColumnName="StatusDescription" />
+          <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+          <ScalarProperty Name="DateOfParsing" ColumnName="DateOfParsing" />
+          <ScalarProperty Name="TimeToFirstBit" ColumnName="TimeToFirstBit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

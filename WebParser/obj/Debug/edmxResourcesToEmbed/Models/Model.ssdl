@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище ParsingResultsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TagA">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UrlId" Type="int" Nullable="false" />
+    <Property Name="Href" Type="nvarchar" MaxLength="450" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TagH1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UrlId" Type="int" Nullable="false" />
+    <Property Name="H1Text" Type="nvarchar" MaxLength="350" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TagImg">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UrlId" Type="int" Nullable="false" />
+    <Property Name="Src" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Urls">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Url" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="MetaContent" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="StatusDescription" Type="nvarchar" MaxLength="50" />
+    <Property Name="StatusCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateOfParsing" Type="datetime" />
+    <Property Name="TimeToFirstBit" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_TagA_Urls">
+    <End Role="Urls" Type="Self.Urls" Multiplicity="1" />
+    <End Role="TagA" Type="Self.TagA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urls">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TagA">
+        <PropertyRef Name="UrlId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TagH1_Urls">
+    <End Role="Urls" Type="Self.Urls" Multiplicity="1" />
+    <End Role="TagH1" Type="Self.TagH1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urls">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TagH1">
+        <PropertyRef Name="UrlId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TagImg_Urls">
+    <End Role="Urls" Type="Self.Urls" Multiplicity="1" />
+    <End Role="TagImg" Type="Self.TagImg" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urls">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TagImg">
+        <PropertyRef Name="UrlId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ParsingResultsModelContainer">
+    <EntitySet Name="TagA" EntityType="Self.TagA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TagH1" EntityType="Self.TagH1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TagImg" EntityType="Self.TagImg" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Urls" EntityType="Self.Urls" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TagA_Urls" Association="Self.FK_TagA_Urls">
+      <End Role="Urls" EntitySet="Urls" />
+      <End Role="TagA" EntitySet="TagA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TagH1_Urls" Association="Self.FK_TagH1_Urls">
+      <End Role="Urls" EntitySet="Urls" />
+      <End Role="TagH1" EntitySet="TagH1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TagImg_Urls" Association="Self.FK_TagImg_Urls">
+      <End Role="Urls" EntitySet="Urls" />
+      <End Role="TagImg" EntitySet="TagImg" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
